@@ -142,6 +142,10 @@ spec:
               type: array
             image:
               type: string
+            labels:
+              additionalProperties:
+                type: string
+              type: object
             repository:
               minLength: 3
               pattern: ^[^/]+/[^/]+$
