@@ -17,6 +17,8 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.6
+        env:
+          ImageOS: ubuntu18
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
 
