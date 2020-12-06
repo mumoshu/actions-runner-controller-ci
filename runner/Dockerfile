@@ -67,6 +67,11 @@ RUN export ARCH=$(echo ${TARGETPLATFORM} | cut -d / -f2) \
   && mv ./externals ./externalstmp \
   && rm -rf /var/lib/apt/lists/*
 
+RUN echo AGENT_TOOLSDIRECTORY=/opt/hostedtoolcache > /runner.env \
+  && mkdir /opt/hostedtoolcache \
+  && chgrp runner /opt/hostedtoolcache \
+  && chmod g+rwx /opt/hostedtoolcache
+
 COPY entrypoint.sh /runner
 COPY patched /runner/patched
 
